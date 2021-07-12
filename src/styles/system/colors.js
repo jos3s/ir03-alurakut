@@ -1,24 +1,30 @@
-export const colors = {
-  bgDefault: "#D9E6F6",
-  bgSecondary: "#F1F9FE",
-  textPrimary: "#2E7BB4",
-  textSecondary: "#388BB0",
-  textTertiary: "#2F4A71",
-  elementPrimary: "#6F92BB",
-  elementSecondary: "#5579A1",
+const colorsBase = {
+  blue: ["#388BB0", "#2E7BB4"],
+  blueGray: ["#F1F9FE", "#D9E6F6", "#bbcde8", "#6F92BB", "#5579A1", "#2F4A71"],
   gray: ["#F4F4F4", "#C5C6CA", "#999999", "#5A5A5A", "#333333"],
+  black: "#000",
   white: "#fff",
   pink: "#d81d99",
+};
+
+export const colors = {
+  ...colorsBase,
   bg: {
-    primary: "#d9e6f6",
-    secondary: "#f1f9fe",
-    tertiary: "#ffffff",
-    quarternary: "#bbcde8",
+    primary: colorsBase.blueGray[1],
+    secondary: colorsBase.blueGray[0],
+    tertiary: colorsBase.white,
+    quarternary: colorsBase.blueGray[2],
   },
   text: {
-    primary: "#2E7BB4",
-    secondary: "#388BB0",
-    tertiary: "#2F4A71",
-    quarternary: "#d81d99",
+    primary: colorsBase.blue[1],
+    secondary: colorsBase.blue[0],
+    tertiary: colorsBase.blueGray[5],
+    quarternary: colorsBase.pink,
+  },
+  element: {
+    primary: colorsBase.blueGray[3],
+    secondary: colorsBase.blueGray[4],
   },
 };
+
+export const dark = {};
