@@ -13,15 +13,15 @@ export const Item = styled.li`
     height: 102px;
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: ${({ theme }) => theme.radii.md};
     span {
       color: #ffffff;
-      font-size: 10px;
+      font-size: 1rem;
       position: absolute;
       left: 0;
-      bottom: 10px;
+      bottom: ${({ theme }) => theme.space.xsmall};
       z-index: 2;
-      padding: 0 4px;
+      padding: 0 0.4rem;
       overflow: hidden;
       text-overflow: ellipsis;
       width: 100%;

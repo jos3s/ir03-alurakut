@@ -2,11 +2,11 @@ import styled from "styled-components";
 
 export const MainGrid = styled.main`
   width: 100%;
-  gap: 1rem;
+  gap: ${({ theme }) => theme.space.xsmall};
   margin-left: auto;
   margin-right: auto;
   max-width: 50rem;
-  padding: 1.6rem;
+  padding: ${({ theme }) => theme.space.large};
   .profileArea {
     display: none;
     @media (min-width: 860px) {

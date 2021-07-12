@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 export const Box = styled.div`
-  background: #ffffff;
-  border-radius: 0.8rem;
-  padding: 1.6rem;
+  background: ${({ theme }) => theme.colors.white};
+  border-radius: ${({ theme }) => theme.radii.md};
+  padding: ${({ theme }) => theme.space.large};
   /* CSS Pré-Pronto */
-  margin-bottom: 10px;
+  margin-bottom: ${({ theme }) => theme.space.xsmall};
   .boxLink {
-    font-size: 1.4rem;
-    color: #2e7bb4;
+    font-size: ${({ theme }) => theme.space.medium};
+    color: ${({ theme }) => theme.colors.blue[1]};
     text-decoration: none;
     font-weight: 800;
   }
@@ -20,14 +20,14 @@ export const Box = styled.div`
   }
   input {
     width: 100%;
-    background-color: #f4f4f4;
-    color: #333333;
+    background-color: ${({ theme }) => theme.colors.gray[0]};
+    color: ${({ theme }) => theme.colors.gray[4]};
     border: 0;
     padding: 1.4rem 1.6rem;
-    margin-bottom: 1.4rem;
+    margin-bottom: ${({ theme }) => theme.space.medium};
     border-radius: 10000px;
     ::placeholder {
-      color: #333333;
+      color: ${({ theme }) => theme.colors.gray[4]};
       opacity: 1;
     }
   }
