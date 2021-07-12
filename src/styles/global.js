@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   body {
     font-family:sans-serif;
-    background:${({ theme }) => theme.colors.bgDefault};
+    background:${({ theme }) => theme.colors.bg.primary};
   }
   img {
     max-width: 100%;
