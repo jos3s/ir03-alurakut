@@ -1,17 +1,11 @@
 import styled from "styled-components";
 
 export const Box = styled.div`
-  background: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.cardBg};
   border-radius: ${({ theme }) => theme.radii.md};
   padding: ${({ theme }) => theme.space.large};
   /* CSS Pré-Pronto */
   margin-bottom: ${({ theme }) => theme.space.xsmall};
-  .boxLink {
-    font-size: ${({ theme }) => theme.space.medium};
-    color: ${({ theme }) => theme.colors.blue[1]};
-    text-decoration: none;
-    font-weight: 800;
-  }
   hr {
     margin-top: 1.2rem;
     margin-bottom: 0.8rem;
