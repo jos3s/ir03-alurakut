@@ -45,7 +45,7 @@ export const dark = {
     secondary: colorsBase.blue[0],
     tertiary: colorsBase.blueGray[5],
     quarternary: colorsBase.pink,
-    normal: "#e8e6e3",
+    normal: "#fefefe",
   },
   element: {
     primary: colorsBase.blueGray[3],
