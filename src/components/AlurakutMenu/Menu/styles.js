@@ -27,13 +27,6 @@ export const Wrapper = styled.header`
     }
 
     button {
-      border: 0;
-      background: transparent;
-      align-self: center;
-      display: inline-block;
-      @media (min-width: 860px) {
-        display: none;
-      }
     }
 
     nav {
@@ -76,5 +69,15 @@ export const Wrapper = styled.header`
         opacity: 1;
       }
     }
+  }
+`;
+
+export const Button = styled.button`
+  border: 0;
+  background: transparent;
+  align-self: center;
+  display: inline-block;
+  @media (min-width: 860px) {
+    display: none;
   }
 `;
