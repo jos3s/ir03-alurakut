@@ -1,5 +1,25 @@
 import * as Styled from "./styles";
 
-export const ProfileRelations = ({ children }) => {
-  return <Styled.Wrapper>{children}</Styled.Wrapper>;
+import { BoxLink } from "../BoxLink";
+import { Heading } from "../Heading";
+import { ItemBox } from "../ItemBox";
+
+export const ProfileRelations = ({ title, data, children }) => {
+  return (
+    <Styled.Wrapper>
+      <Heading variant="smallTitle">
+        {title} ({data?.length}):
+      </Heading>
+      <ul>
+        {data?.map((item) => (
+          <ItemBox
+            name={item.name}
+            imgUrl={item.imgUrl}
+            key={item.key || item.name}
+          />
+        ))}
+      </ul>
+      {children}
+    </Styled.Wrapper>
+  );
 };
