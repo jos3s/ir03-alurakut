@@ -5,8 +5,8 @@ export const getFollowers = async () => {
     "https://api.github.com/users/jos3s/followers"
   );
   const newData = data.map((follower) => ({
-    nick: follower.login,
-    avatar_url: follower.avatar_url,
+    name: follower.login,
+    imgUrl: follower.avatar_url,
     login_url: follower.html_url,
   }));
   return newData.slice(0, 6);
