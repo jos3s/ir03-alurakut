@@ -27,6 +27,8 @@ export const light = {
     primary: colorsBase.blueGray[3],
     secondary: colorsBase.blueGray[4],
   },
+  inputBg: colorsBase.gray[0],
+  inputColor: colorsBase.gray[4],
 };
 
 export const dark = {
@@ -49,4 +51,6 @@ export const dark = {
     primary: colorsBase.blueGray[3],
     secondary: colorsBase.blueGray[4],
   },
+  inputBg: "#25282a",
+  inputColor: "#c8c3bc",
 };

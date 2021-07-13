@@ -24,6 +24,19 @@ export const GlobalStyle = createGlobalStyle`
     min-height:100vh;
     flex-direction: column;
   }
+  input {
+    background: ${({ theme }) => theme.colors.bg.primary};
+    transition: 0.3s;
+    outline: 0;
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+    &:hover,
+    &:focus {
+      box-shadow: 0px 0px 5px #33333357;
+    }
+  }
 
  ${AlurakutStyles}
 `;
