@@ -14,14 +14,14 @@ export const Box = styled.div`
   }
   input {
     width: 100%;
-    background-color: ${({ theme }) => theme.colors.gray[0]};
-    color: ${({ theme }) => theme.colors.gray[4]};
+    color: ${({ theme }) => theme.colors.inputColor};
+    background-color: ${({ theme }) => theme.colors.inputBg};
     border: 0;
     padding: 1.4rem 1.6rem;
     margin-bottom: ${({ theme }) => theme.space.medium};
     border-radius: 10000px;
     ::placeholder {
-      color: ${({ theme }) => theme.colors.gray[4]};
+      color: ${({ theme }) => theme.colors.inputColor};
       opacity: 1;
     }
   }
