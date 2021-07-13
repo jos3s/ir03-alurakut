@@ -7,7 +7,7 @@ const colorsBase = {
   pink: "#d81d99",
 };
 
-export const colors = {
+export const light = {
   ...colorsBase,
   bg: {
     primary: colorsBase.blueGray[1],
@@ -20,11 +20,33 @@ export const colors = {
     secondary: colorsBase.blue[0],
     tertiary: colorsBase.blueGray[5],
     quarternary: colorsBase.pink,
+    normal: "#000",
   },
+  cardBg: colorsBase.white,
   element: {
     primary: colorsBase.blueGray[3],
     secondary: colorsBase.blueGray[4],
   },
 };
 
-export const dark = {};
+export const dark = {
+  ...colorsBase,
+  bg: {
+    primary: "#25282a",
+    secondary: colorsBase.blueGray[0],
+    tertiary: colorsBase.white,
+    quarternary: colorsBase.blueGray[2],
+  },
+  cardBg: "#181a1b",
+  text: {
+    primary: colorsBase.blue[1],
+    secondary: colorsBase.blue[0],
+    tertiary: colorsBase.blueGray[5],
+    quarternary: colorsBase.pink,
+    normal: "#e8e6e3",
+  },
+  element: {
+    primary: colorsBase.blueGray[3],
+    secondary: colorsBase.blueGray[4],
+  },
+};

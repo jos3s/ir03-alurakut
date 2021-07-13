@@ -1,10 +1,19 @@
 import { fontSizes } from "./system/fontSizes";
-import { colors } from "./system/colors";
+import { light, dark } from "./system/colors";
 import { space } from "./system/space";
 import { radii } from "./system/radii";
 
 export const theme = {
-  colors,
+  isLight:true,
+  colors: { ...light },
+  fontSizes,
+  radii,
+  space,
+};
+
+export const darkTheme = {
+  isLight:false,
+  colors: { ...dark },
   fontSizes,
   radii,
   space,

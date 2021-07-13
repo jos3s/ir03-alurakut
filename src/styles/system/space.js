@@ -6,4 +6,5 @@ export const space = {
   xlarge: "2rem",
   xxlarge: "2.4rem",
   huge: "3.2rem",
+  xhuge: "4.6rem",
 };
