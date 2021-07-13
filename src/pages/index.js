@@ -30,11 +30,14 @@ function ProfileSideBar(githubUser) {
 
 export default function Home() {
   const [followsGithub, setFollowsGithub] = useState([]);
-  const [communities, setCommunities] = useState([{
-    id: '12802378123789378912789789123896123', 
-    name: 'Eu odeio acordar cedo',
-    imgUrl: 'https://alurakut.vercel.app/capa-comunidade-01.jpg'
-  }]);
+  const [communities, setCommunities] = useState([
+    {
+      id: "12802378123789378912789789123896123",
+      name: "Eu odeio acordar cedo",
+      imgUrl: "https://alurakut.vercel.app/capa-comunidade-01.jpg",
+      link: "#",
+    },
+  ]);
 
   const getGithub = async () => {
     const response = await getFollowers();
@@ -48,13 +51,20 @@ export default function Home() {
   const handleCreateCommunity = (event) => {
     event.preventDefault();
     const dataForm = new FormData(event.target);
-    const newCommunity = {
-      id: new Date().toISOString(),
-      name: dataForm.get('title'),
-      imgUrl: dataForm.get('image'),
+    const name = dataForm.get("title");
+
+    if (!!name) {
+      const link = !dataForm.get("link") ? "#" : dataForm.get("link");
+      const newCommunity = {
+        id: new Date().toISOString(),
+        name: dataForm.get("title"),
+        imgUrl:
+          "https://picsum.photos/200?id" + (Math.random() * (100 - 0) + 0),
+        link: link,
+      };
+      setCommunities([...communities, newCommunity]);
     }
-    setCommunities([...communities, newCommunity]);
-  }
+  };
 
   return (
     <>
@@ -83,9 +93,9 @@ export default function Home() {
               </div>
               <div>
                 <input
-                  placeholder="Link para imagem que será a capa da comunidade"
-                  aria-label="Link para imagem que será a capa da comunidade"
-                  name="image"
+                  placeholder="Link para a comunidade"
+                  aria-label="Link para a comunidade"
+                  name="link"
                 />
               </div>
               <Button variant="primary">Criar comunidade</Button>
