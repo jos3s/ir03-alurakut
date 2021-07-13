@@ -1,9 +1,11 @@
 import styled from "styled-components";
+import { space } from "styled-system";
 
 export const Link = styled.a`
   font-size: ${({ theme }) => theme.fontSizes.large};
   color: ${({ theme }) => theme.colors.blue[1]};
   margin-bottom: ${({ theme }) => theme.space.large};
+  ${space}
   display: flex;
   align-items: center;
   justify-content: flex-start;
