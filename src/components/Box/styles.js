@@ -6,12 +6,7 @@ export const Box = styled.div`
   padding: ${({ theme }) => theme.space.large};
   /* CSS Pré-Pronto */
   margin-bottom: ${({ theme }) => theme.space.xsmall};
-  hr {
-    margin-top: 1.2rem;
-    margin-bottom: 0.8rem;
-    border-color: transparent;
-    border-bottom-color: #ecf2fa;
-  }
+
   input {
     width: 100%;
     color: ${({ theme }) => theme.colors.inputColor};
