@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { getFollowers } from "../api/github";
 
 import { ProfileSidebarMenuDefault } from "../components/AlurakutMenu/ProfileSidebarMenuDefault";
-import { OrkutNostalgicIconSet } from "./../lib/AluraCommons";
+import { OrkutNostalgicIcons } from "./../components/OrkutNostalgicIcons";
 import { ProfileRelations } from "../components/ProfileRelations";
 import { Menu } from "../components/AlurakutMenu/Menu";
 import { MainGrid } from "../components/MainGrid";
@@ -26,7 +26,8 @@ function ProfileSideBar(githubUser) {
       </Text>
       <ProfileSidebarMenuDefault githubUser={githubUser} />
     </Box>
-)}
+  );
+}
 
 export default function Home() {
   const [followsGithub, setFollowsGithub] = useState([]);
@@ -76,7 +77,7 @@ export default function Home() {
         <Wrapper className="welcomeArea" gridArea="welcome">
           <Box>
             <Heading variant="title"> Bem vindo(a)</Heading>
-            <OrkutNostalgicIconSet />
+            <OrkutNostalgicIcons />
           </Box>
           <Box>
             <Heading variant="subTitle" as="h2">
