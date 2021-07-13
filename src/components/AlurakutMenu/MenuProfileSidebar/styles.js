@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background: white;
+  background: ${({ theme }) => theme.colors.cardBg};
   position: fixed;
   z-index: 100;
   padding: 4.6rem;
@@ -20,11 +20,5 @@ export const Container = styled.div`
   > div {
     max-width: 40rem;
     margin: auto;
-  }
-  hr {
-    margin-top: ${({ theme }) => theme.space.xsmall};
-    margin-bottom: 0.8rem;
-    border-color: transparent;
-    border-bottom-color: #ecf2fa;
   }
 `;

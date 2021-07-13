@@ -21,7 +21,7 @@ export const Menu = ({ githubUser }) => {
 
   return (
     <Styled.Wrapper isMenuOpen={isMenuOpen}>
-      <div className="container">
+      <Styled.Container>
         <Styled.Logo src={`${BASE_URL}/logo.svg`} />
 
         <Button variant="none" onClick={toggleTheme} title="Troque o tema">
@@ -51,7 +51,7 @@ export const Menu = ({ githubUser }) => {
             <img src={`${BASE_URL}/icons/menu-closed.svg?v=${v}`} />
           )}
         </Styled.Button>
-      </div>
+      </Styled.Container>
       <MenuProfileSidebar githubUser={githubUser} isMenuOpen={isMenuOpen} />
     </Styled.Wrapper>
   );

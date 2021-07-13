@@ -1,4 +1,5 @@
 import * as Styled from "./styles";
+
 import { ProfileSidebarMenuDefault } from "../ProfileSidebarMenuDefault";
 import { BoxLink } from "../../BoxLink";
 
@@ -17,7 +18,6 @@ export const MenuProfileSidebar = ({ githubUser, isMenuOpen }) => {
           </BoxLink>
         </p>
         <hr />
-
         <ProfileSidebarMenuDefault githubUser={githubUser} />
       </div>
     </Styled.Container>
