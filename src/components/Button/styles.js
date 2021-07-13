@@ -6,7 +6,7 @@ export const Button = styled.button`
     variants: {
       primary: {
         color: "white",
-        backgroundColor: "blueGray.3",
+        backgroundColor: "element.primary",
         borderRadius: "10000px",
       },
     },

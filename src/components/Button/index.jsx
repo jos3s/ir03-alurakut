@@ -1,6 +1,10 @@
 import P from "prop-types";
 import * as Styled from "./styles";
 
-export const Button = ({ children, ...props }) => {
-  return <Styled.Button {...props}>{children}</Styled.Button>;
+export const Button = ({ children, handleClick, ...props }) => {
+  return (
+    <Styled.Button onClick={handleClick} {...props}>
+      {children}
+    </Styled.Button>
+  );
 };
