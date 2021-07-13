@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { variant } from "styled-system";
+import { variant, color } from "styled-system";
 
 export const Title = styled.h1`
   ${variant({
@@ -19,6 +19,6 @@ export const Title = styled.h1`
       },
     },
   })}
-
+  ${color}
   margin-bottom: 2rem;
 `;
