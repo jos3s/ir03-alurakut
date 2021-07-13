@@ -16,6 +16,7 @@ export const ProfileRelations = ({ title, data, children }) => {
             name={item.name}
             imgUrl={item.imgUrl}
             key={item.key || item.name}
+            link={item?.link}
           />
         ))}
       </ul>

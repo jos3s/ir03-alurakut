@@ -9,5 +9,7 @@ export const Wrapper = styled(Box)`
     max-height: 22rem;
     list-style: none;
     margin-bottom: ${({ theme }) => theme.space.medium};
+    overflow-y: auto;
+    padding-right: 6px;
   }
 `;
