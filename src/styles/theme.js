@@ -3,8 +3,8 @@ import { light, dark } from "./system/colors";
 import { space } from "./system/space";
 import { radii } from "./system/radii";
 
-export const theme = {
-  isLight:true,
+export const lightTheme = {
+  isLight: true,
   colors: { ...light },
   fontSizes,
   radii,
