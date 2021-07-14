@@ -1,5 +1,6 @@
 import { useState } from "react";
 import * as Styled from "./styles";
+import { Moon, Sun } from "theme-icons";
 
 import { MenuProfileSidebar } from "../MenuProfileSidebar";
 import { Link } from "../../Link";
@@ -17,7 +18,7 @@ const v = "1";
 export const Menu = ({ githubUser }) => {
   const [isMenuOpen, setMenuState] = useState(false);
 
-  const { toggleTheme } = useTheme();
+  const { toggleTheme, isLight } = useTheme();
 
   return (
     <Styled.Wrapper isMenuOpen={isMenuOpen}>
@@ -25,7 +26,7 @@ export const Menu = ({ githubUser }) => {
         <Styled.Logo src={`${BASE_URL}/logo.svg`} />
 
         <Button variant="none" onClick={toggleTheme} title="Troque o tema">
-          Tema
+          {isLight ? <Moon /> : <Sun />}
         </Button>
         <nav style={{ flex: 1 }}>
           {links.map((menuItem) => (
