@@ -2,34 +2,19 @@ import { useState, useEffect } from "react";
 /* import { Moon } from "fresh-icons"; */
 import { getFollowers } from "../api/github";
 
-import { ProfileSidebarMenuDefault } from "../components/AlurakutMenu/ProfileSidebarMenuDefault";
 import { OrkutNostalgicIcons } from "./../components/OrkutNostalgicIcons";
 import { ProfileRelations } from "../components/ProfileRelations";
+import { ProfileSideBar } from "../components/ProfileSideBar";
 import { Menu } from "../components/AlurakutMenu/Menu";
 import { MainGrid } from "../components/MainGrid";
 import { Heading } from "../components/Heading";
 import { Wrapper } from "../components/Wrapper";
 import { BoxLink } from "../components/BoxLink";
 import { Button } from "../components/Button";
-import { Text } from "../components/Text";
 import { Box } from "../components/Box";
 
-function ProfileSideBar(githubUser) {
-  return (
-    <Box>
-      <img src="https://github.com/jos3s.png" alt="Jos3s" />
-      <hr />
-      <Text my="medium">
-        <BoxLink url={`https://github.com/${githubUser}`}>
-          @{githubUser}
-        </BoxLink>
-      </Text>
-      <ProfileSidebarMenuDefault githubUser={githubUser} />
-    </Box>
-  );
-}
-
 export default function Home() {
+  const githubUser = "jos3s";
   const [followsGithub, setFollowsGithub] = useState([]);
   const [communities, setCommunities] = useState([
     {
@@ -69,10 +54,10 @@ export default function Home() {
 
   return (
     <>
-      <Menu githubUser={"jos3s"} />
+      <Menu githubUser={githubUser} />
       <MainGrid>
         <Wrapper className="profileArea" gridArea="profile" as="aside">
-          {ProfileSideBar("jos3s")}
+          <ProfileSideBar githubUser={githubUser} />
         </Wrapper>
         <Wrapper className="welcomeArea" gridArea="welcome">
           <Box>
@@ -81,7 +66,7 @@ export default function Home() {
           </Box>
           <Box>
             <Heading variant="subTitle" as="h2">
-              O que voce deseja fazer?
+              Crie uma nova comunidade:
             </Heading>
             <form onSubmit={handleCreateCommunity}>
               <div>
