@@ -25,7 +25,8 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;
   }
   input {
-    background: ${({ theme }) => theme.colors.bg.primary};
+    color: ${({ theme }) => theme.colors.inputColor};
+    background-color: ${({ theme }) => theme.colors.inputBg};
     transition: 0.3s;
     outline: 0;
     &:disabled {
@@ -35,6 +36,10 @@ export const GlobalStyle = createGlobalStyle`
     &:hover,
     &:focus {
       box-shadow: 0px 0px 5px #33333357;
+    }
+    ::placeholder {
+      color: ${({ theme }) => theme.colors.inputColor};
+      opacity: 1;
     }
   }
   *::-webkit-scrollbar {
