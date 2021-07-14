@@ -9,5 +9,5 @@ export const getFollowers = async () => {
     imgUrl: follower.avatar_url,
     login_url: follower.html_url,
   }));
-  return newData.slice(0, 6);
+  return newData;
 };
