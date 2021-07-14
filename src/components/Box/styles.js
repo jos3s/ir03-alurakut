@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { layout, space, flexbox, grid, position, compose } from "styled-system";
 
 export const Box = styled.div`
   background: ${({ theme }) => theme.colors.cardBg};
@@ -9,15 +10,11 @@ export const Box = styled.div`
 
   input {
     width: 100%;
-    color: ${({ theme }) => theme.colors.inputColor};
-    background-color: ${({ theme }) => theme.colors.inputBg};
     border: 0;
     padding: 1.4rem 1.6rem;
     margin-bottom: ${({ theme }) => theme.space.medium};
     border-radius: 10000px;
-    ::placeholder {
-      color: ${({ theme }) => theme.colors.inputColor};
-      opacity: 1;
-    }
   }
+
+  ${compose(layout, space, flexbox, grid, position)}
 `;
