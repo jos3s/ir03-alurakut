@@ -1,6 +1,5 @@
 import * as Styled from "./styles";
 
-import { BoxLink } from "../BoxLink";
 import { Heading } from "../Heading";
 import { ItemBox } from "../ItemBox";
 
