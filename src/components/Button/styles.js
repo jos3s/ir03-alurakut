@@ -16,6 +16,13 @@ export const Button = styled.button`
           color: "white",
           background: "transparent",
         },
+        rectangle: {
+          color: "white",
+          width: "100%",
+          borderRadius: "md",
+          backgroundColor: "element.secondary",
+          display: "block",
+        },
       },
     }),
     layout,
