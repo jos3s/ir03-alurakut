@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 /* import { Moon } from "fresh-icons"; */
-import { getFollowers } from "../api/github";
+import { getFollowers, getFollowing } from "../api/github";
 
 import { OrkutNostalgicIcons } from "./../components/OrkutNostalgicIcons";
 import { ProfileRelations } from "../components/ProfileRelations";
@@ -16,22 +16,40 @@ import { Box } from "../components/Box";
 export default function Home() {
   const githubUser = "jos3s";
   const [followsGithub, setFollowsGithub] = useState([]);
-  const [communities, setCommunities] = useState([
-    {
-      id: "12802378123789378912789789123896123",
-      name: "Eu odeio acordar cedo",
-      imgUrl: "https://alurakut.vercel.app/capa-comunidade-01.jpg",
-      link: "#",
-    },
-  ]);
+  const [followingGithub, setFollowingGithub] = useState([]);
+  const [communities, setCommunities] = useState([]);
 
   const getGithub = async () => {
-    const response = await getFollowers();
-    setFollowsGithub(response);
+    const followers = await getFollowers();
+    setFollowsGithub(followers);
+    const following = await getFollowing();
+    setFollowingGithub(following);
   };
 
   useEffect(() => {
     getGithub();
+
+    fetch("https://graphql.datocms.com/", {
+      method: "POST",
+      headers: {
+        Authorization: "3a3c585a7c4c3717a9381bf15ab343",
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        query: `query {
+          allCommunities {
+            creatorSlug
+            name
+            id
+            imgUrl
+            link
+          }
+        }`,
+      }),
+    })
+      .then((r) => r.json())
+      .then((r) => setCommunities(r.data.allCommunities));
   }, []);
 
   const handleCreateCommunity = (event) => {
@@ -39,17 +57,28 @@ export default function Home() {
     const dataForm = new FormData(event.target);
     const name = dataForm.get("title");
 
-    if (!!name) {
-      const link = !dataForm.get("link") ? "#" : dataForm.get("link");
-      const newCommunity = {
-        id: new Date().toISOString(),
-        name: dataForm.get("title"),
-        imgUrl:
-          "https://picsum.photos/200?id" + (Math.random() * (100 - 0) + 0),
-        link: link,
-      };
-      setCommunities([...communities, newCommunity]);
-    }
+    if (!name) return;
+
+    const link = !dataForm.get("link") ? "#" : dataForm.get("link");
+    const newCommunity = {
+      name: dataForm.get("title"),
+      imgUrl:
+        "https://picsum.photos/200?id" + (Math.random() * (100 - 0) + 0),
+      link,
+      creatorSlug: githubUser,
+    };
+
+    fetch("api/communities", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newCommunity),
+    }).then(async (response) => {
+      const data = await response.json();
+      setCommunities([...communities, data.register]);
+    });
+    
   };
 
   return (
@@ -89,10 +118,13 @@ export default function Home() {
           </Box>
         </Wrapper>
         <Wrapper className="profileRelationsArea" gridArea="profileRelations">
-          <ProfileRelations title="Pessoas" data={followsGithub}>
+          <ProfileRelations title="Comunidades" data={communities}>
             <BoxLink>Ver todos</BoxLink>
           </ProfileRelations>
-          <ProfileRelations title="Comunidades" data={communities}>
+          <ProfileRelations title="Seguidores" data={followsGithub}>
+            <BoxLink>Ver todos</BoxLink>
+          </ProfileRelations>
+          <ProfileRelations title="Seguindo" data={followingGithub}>
             <BoxLink>Ver todos</BoxLink>
           </ProfileRelations>
         </Wrapper>
