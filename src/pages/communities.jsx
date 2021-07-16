@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
+import nookies from "nookies";
+import jwt from "jsonwebtoken";
 
 import { MainGrid } from "../styles/pages/communities";
 import { ProfileRelations } from "../components/ProfileRelations";
 import { ProfileSideBar } from "../components/ProfileSideBar";
 import { Menu } from "../components/AlurakutMenu/Menu";
 import { Wrapper } from "../components/Wrapper";
-import { BoxLink } from "../components/BoxLink";
 
-export default function Communities() {
-  const githubUser = "jos3s";
+export default function Communities(props) {
+  const githubUser = props.githubUser;
   const [communities, setCommunities] = useState([]);
 
   useEffect(() => {
@@ -39,13 +40,43 @@ export default function Communities() {
     <>
       <Menu githubUser={githubUser} />
       <MainGrid>
-        <Wrapper className="profileArea" gridArea="profile" as="aside">
+        <Wrapper gridArea="profile" as="aside">
           <ProfileSideBar githubUser={githubUser} />
         </Wrapper>
-        <Wrapper className="welcomeArea" gridArea="communities">
+        <Wrapper gridArea="communities">
           <ProfileRelations title="Todas as comunidades" data={communities} />
         </Wrapper>
       </MainGrid>
     </>
   );
 }
+
+export async function getServerSideProps(context) {
+  const cookies = nookies.get(context);
+  const token = cookies.USER_TOKEN;
+  const { isAuthenticated } = await fetch(
+    "https://alurakut.vercel.app/api/auth",
+    {
+      headers: {
+        Authorization: token,
+      },
+    }
+  ).then((resposta) => resposta.json());
+  console.log(isAuthenticated);
+  if (!isAuthenticated) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  const { githubUser } = jwt.decode(token);
+  return {
+    props: {
+      githubUser,
+    },
+  };
+}
+
