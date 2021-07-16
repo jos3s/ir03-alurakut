@@ -24,10 +24,12 @@ export const GlobalStyle = createGlobalStyle`
     min-height:100vh;
     flex-direction: column;
   }
-  input {
+  input, textarea {
     color: ${({ theme }) => theme.colors.inputColor};
+    border-radius: ${({ theme }) => theme.radii.md};
     background-color: ${({ theme }) => theme.colors.inputBg};
     transition: 0.3s;
+    padding: ${({ theme }) => theme.space.small};
     outline: 0;
     &:disabled {
       cursor: not-allowed;
