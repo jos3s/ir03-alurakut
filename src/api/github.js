@@ -1,13 +1,12 @@
 import axios from "axios";
 
-const USER = "jos3s";
 
 export const api = axios.create({
-  baseURL: "https://api.github.com/users/" + USER,
+  baseURL: "https://api.github.com/users/",
 });
 
-export const getFollowers = async () => {
-  const { data } = await api.get("/followers");
+export const getFollowers = async (user) => {
+  const { data } = await api.get(user + "/followers");
   const newData = data.map((follower) => ({
     name: follower.login,
     imgUrl: follower.avatar_url,
@@ -16,8 +15,8 @@ export const getFollowers = async () => {
   return newData;
 };
 
-export const getFollowing = async () => {
-  const { data } = await api.get("/following");
+export const getFollowing = async (user) => {
+  const { data } = await api.get(user + "/following");
   const newData = data.map((follower) => ({
     name: follower.login,
     imgUrl: follower.avatar_url,
